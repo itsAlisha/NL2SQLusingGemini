@@ -10,7 +10,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Function to get response from Gemini model
 def get_gemini_response(question, prompt):
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel(model_name='models/gemini-pro')
     response = model.generate_content([prompt[0], question])
     
     sql_query = response.text.strip()
