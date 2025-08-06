@@ -7,10 +7,11 @@ import google.generativeai as genai
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key="AIzaSyCwIznuecug33we_bQAiosCq4dnzjrvBEU")
 
 # Function to get response from Gemini model
 def get_gemini_response(question, prompt):
-    model = genai.GenerativeModel(model_name='models/gemini-pro')
+    model = genai.GenerativeModel(model_name='models/gemini-2.0-flash')
     response = model.generate_content([prompt[0], question])
     
     sql_query = response.text.strip()
